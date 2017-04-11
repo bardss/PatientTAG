@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PatientTAG</string>
+    <string name="new_id">New ID</string>
+    <string name="xxxxxx">XXXXXX</string>
+    <string name="tag_id">TAG ID:</string>
+    <string name="write">WRITE</string>
+    <string name="read">READ</string>
 </resources>
