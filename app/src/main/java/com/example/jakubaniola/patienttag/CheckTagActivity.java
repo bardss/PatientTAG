@@ -45,9 +45,9 @@ public class CheckTagActivity extends Activity {
         setContentView(R.layout.activity_check_tag);
         ButterKnife.bind(this);
 
-        nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        //nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
-        setupButtons();
+        //setupButtons();
     }
 
     private void setupButtons() {
@@ -72,14 +72,14 @@ public class CheckTagActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        enableForegroundDispatchSystem();
+        //enableForegroundDispatchSystem();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        disableForegroundDispatchSystem();
+        //disableForegroundDispatchSystem();
     }
 
 
@@ -90,54 +90,38 @@ public class CheckTagActivity extends Activity {
         if (intent.hasExtra(NfcAdapter.EXTRA_TAG)) {
             Toast.makeText(this, "TAG Detected", Toast.LENGTH_SHORT).show();
 
-            if(idTV.getVisibility() == View.VISIBLE)
-            {
+            if (idTV.getVisibility() == View.VISIBLE) {
                 Parcelable[] parcelables = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
 
-                if(parcelables != null && parcelables.length > 0)
-                {
+                if (parcelables != null && parcelables.length > 0) {
                     readTextFromMessage((NdefMessage) parcelables[0]);
-                }else{
+                } else {
                     Toast.makeText(this, "No NDEF messages found!", Toast.LENGTH_SHORT).show();
                 }
-
-            }else{
+            } else {
                 Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-                NdefMessage ndefMessage = createNdefMessage(idET.getText()+"");
-
+                NdefMessage ndefMessage = createNdefMessage(idET.getText() + "");
                 writeNdefMessage(tag, ndefMessage);
             }
-
         }
     }
 
     private void readTextFromMessage(NdefMessage ndefMessage) {
-
         NdefRecord[] ndefRecords = ndefMessage.getRecords();
-
-        if(ndefRecords != null && ndefRecords.length>0){
-
+        if (ndefRecords != null && ndefRecords.length > 0) {
             NdefRecord ndefRecord = ndefRecords[0];
-
             String tagContent = getTextFromNdefRecord(ndefRecord);
-
             idTV.setText(tagContent);
-
-        }else
-        {
+        } else {
             Toast.makeText(this, "No NDEF records found!", Toast.LENGTH_SHORT).show();
         }
 
     }
 
     private void enableForegroundDispatchSystem() {
-
         Intent intent = new Intent(this, CheckTagActivity.class).addFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING);
-
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
-
         IntentFilter[] intentFilters = new IntentFilter[]{};
-
         nfcAdapter.enableForegroundDispatch(this, pendingIntent, intentFilters, null);
     }
 
@@ -147,61 +131,43 @@ public class CheckTagActivity extends Activity {
 
     private void formatTag(Tag tag, NdefMessage ndefMessage) {
         try {
-
             NdefFormatable ndefFormatable = NdefFormatable.get(tag);
-
             if (ndefFormatable == null) {
                 Toast.makeText(this, "TAG is not ndef formatable!", Toast.LENGTH_SHORT).show();
                 return;
             }
-
-
             ndefFormatable.connect();
             ndefFormatable.format(ndefMessage);
             ndefFormatable.close();
-
             Toast.makeText(this, "TAG writen!", Toast.LENGTH_SHORT).show();
-
         } catch (Exception e) {
             Log.e("formatTag", e.getMessage());
         }
-
     }
 
     private void writeNdefMessage(Tag tag, NdefMessage ndefMessage) {
-
         try {
-
             if (tag == null) {
                 Toast.makeText(this, "TAG object cannot be null", Toast.LENGTH_SHORT).show();
                 return;
             }
-
             Ndef ndef = Ndef.get(tag);
-
             if (ndef == null) {
                 formatTag(tag, ndefMessage);
             } else {
                 ndef.connect();
-
                 if (!ndef.isWritable()) {
                     Toast.makeText(this, "TAG is not writable!", Toast.LENGTH_SHORT).show();
-
                     ndef.close();
                     return;
                 }
-
                 ndef.writeNdefMessage(ndefMessage);
                 ndef.close();
-
                 Toast.makeText(this, "TAG writen!", Toast.LENGTH_SHORT).show();
-
             }
-
         } catch (Exception e) {
             Log.e("writeNdefMessage", e.getMessage());
         }
-
     }
 
 
@@ -209,16 +175,13 @@ public class CheckTagActivity extends Activity {
         try {
             byte[] language;
             language = Locale.getDefault().getLanguage().getBytes("UTF-8");
-
             final byte[] text = content.getBytes("UTF-8");
             final int languageSize = language.length;
             final int textLength = text.length;
             final ByteArrayOutputStream payload = new ByteArrayOutputStream(1 + languageSize + textLength);
-
             payload.write((byte) (languageSize & 0x1F));
             payload.write(language, 0, languageSize);
             payload.write(text, 0, textLength);
-
             return new NdefRecord(NdefRecord.TNF_WELL_KNOWN, NdefRecord.RTD_TEXT, new byte[0], payload.toByteArray());
 
         } catch (UnsupportedEncodingException e) {
@@ -229,16 +192,12 @@ public class CheckTagActivity extends Activity {
 
 
     private NdefMessage createNdefMessage(String content) {
-
         NdefRecord ndefRecord = createTextRecord(content);
-
         NdefMessage ndefMessage = new NdefMessage(new NdefRecord[]{ndefRecord});
-
         return ndefMessage;
     }
 
-    public String getTextFromNdefRecord(NdefRecord ndefRecord)
-    {
+    public String getTextFromNdefRecord(NdefRecord ndefRecord) {
         String tagContent = null;
         try {
             byte[] payload = ndefRecord.getPayload();
