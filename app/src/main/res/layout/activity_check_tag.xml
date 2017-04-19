@@ -1,55 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_check_tag"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@color/colorBackground"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.example.jakubaniola.patienttag.CheckTagActivity">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/sliding_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
+        app:tabMode="fixed" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_weight="1"
+        android:background="@android:color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
         android:gravity="center"
-        android:layout_marginBottom="30dp">
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
-        <Button
-            android:id="@+id/read_button"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/read"
-            android:padding="10dp"/>
+            android:adjustViewBounds="true"
+            android:src="@drawable/medicalhistory" />
 
-        <Button
-            android:id="@+id/write_button"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/write"/>
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="PatientTAG"
+            android:textColor="@android:color/white"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
-    <TextView
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/change_fragment_floating_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tag_id"
-        android:textSize="36sp"/>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/add_new_tag"
+        app:backgroundTint="@color/colorPrimary" />
 
-    <TextView
-        android:id="@+id/id_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/xxxxxx"
-        android:textSize="46sp"
-        android:textColor="@android:color/black"/>
-
-    <EditText
-        android:id="@+id/id_edit_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="46sp"
-        android:hint="@string/new_id"
-        android:visibility="gone"/>
-
-</LinearLayout>
+</RelativeLayout>
