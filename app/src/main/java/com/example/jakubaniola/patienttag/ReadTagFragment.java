@@ -65,14 +65,11 @@ public class ReadTagFragment extends Fragment {
             ndef.connect();
             NdefMessage ndefMessage = ndef.getNdefMessage();
             String message = new String(ndefMessage.getRecords()[0].getPayload());
-            if (message != null) {
-                readTagTextView.setText(message);
-                readTagTextView.setTextColor(getResources().getColor(R.color.colorAccent));
-            }
+            readTagTextView.setText(message);
+            readTagTextView.setTextColor(getResources().getColor(R.color.colorAccent));
             ndef.close();
         } catch (IOException | FormatException e) {
             e.printStackTrace();
-
         }
     }
 

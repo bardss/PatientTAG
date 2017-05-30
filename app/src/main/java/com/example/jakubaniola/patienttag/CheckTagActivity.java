@@ -11,9 +11,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.jakubaniola.patienttag.Adapters.TagFragmentPagerAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,8 +27,6 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
     TabLayout tabLayout;
     @BindView(R.id.change_fragment_floating_button)
     FloatingActionButton changeFragmentFB;
-
-    public static final String TAG = CheckTagActivity.class.getSimpleName();
 
     private boolean isDialogDisplayed = false;
     private boolean isWrite = false;
@@ -98,7 +97,6 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
     }
 
     private void initNFC(){
-
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
     }
 
@@ -138,10 +136,7 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
     protected void onNewIntent(Intent intent) {
         Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
-        Log.d(TAG, "onNewIntent: "+intent.getAction());
-
         if(tag != null) {
-            Toast.makeText(this, "TAG detected", Toast.LENGTH_SHORT).show();
             Ndef ndef = Ndef.get(tag);
             TagFragmentPagerAdapter tagFragmentPagerAdapter = ((TagFragmentPagerAdapter) viewPager.getAdapter());
             if (isDialogDisplayed) {
@@ -149,6 +144,7 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
                     WriteTagFragment writeTagFragment = ((WriteTagFragment)tagFragmentPagerAdapter.getItem(1));
                     String messageToWrite = writeTagFragment.getIdToWrite();
                     writeTagFragment.onNfcDetected(ndef,messageToWrite);
+                    Toast.makeText(this, "Text written", Toast.LENGTH_SHORT).show();
                 } else {
                     ReadTagFragment readTagFragment = ((ReadTagFragment) tagFragmentPagerAdapter.getItem(0));
                     readTagFragment.onNfcDetected(ndef);
