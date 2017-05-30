@@ -15,9 +15,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.jakubaniola.patienttag.Adapters.TagFragmentPagerAdapter;
+import com.example.jakubaniola.patienttag.Service.ServiceManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import okhttp3.OkHttpClient;
 
 public class CheckTagActivity extends AppCompatActivity implements ListenerInterface{
 
@@ -32,6 +34,7 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
     private boolean isWrite = false;
 
     private NfcAdapter mNfcAdapter;
+    private OkHttpClient restClient;
 
     private boolean readTagOpened = true;
 
@@ -44,6 +47,12 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
         setupTabLayout();
         setupButton();
         initNFC();
+
+        try {
+            ServiceManager.getInstance().getPlayer("122075");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void setupTabLayout() {
