@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: angelo
+Implementation-Version: 1.5.3.RELEASE
+Built-By: sot
+Implementation-Vendor-Id: com.nowak
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_121
+Main-Class: ${start-class}
+
