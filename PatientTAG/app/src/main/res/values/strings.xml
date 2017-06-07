@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PatientTAG</string>
+    <string name="new_id">New ID</string>
+    <string name="xxxxxx">XXXXXX</string>
+    <string name="tag_id">TAG ID:</string>
+    <string name="write">WRITE</string>
+    <string name="read">READ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="date_of_birth">Date of birth</string>
+    <string name="sex">Sex</string>
+</resources>
