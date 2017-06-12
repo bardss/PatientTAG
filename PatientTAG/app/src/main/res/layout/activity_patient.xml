@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -96,16 +97,46 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <EditText
-                    android:id="@+id/sex_edittext"
+                <com.rey.material.widget.Spinner
+                    android:id="@+id/sex_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/sex"
-                    android:inputType=""/>
+                    android:background="@android:color/transparent"
+                    app:spn_labelTextColor="@color/colorPrimaryDark"
+                    app:et_dividerHeight="2dp"
+                    app:et_inputId="@+id/sex_input"
+                    app:et_labelEnable="true"
+                    app:et_labelTextColor="@color/colorAccent"
+                    app:et_supportMode="helper" />
 
             </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:text="@string/examinations"
+                android:textSize="30sp"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/examination"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

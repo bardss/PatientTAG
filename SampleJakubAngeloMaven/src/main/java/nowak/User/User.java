@@ -20,6 +20,10 @@ public class User extends BaseEntity {
     private String name;
     @JsonView(Views.User.class)
     private String surname;
+    @JsonView(Views.User.class)
+    private String dateOfBirth;
+    @JsonView(Views.User.class)
+    private Sex sex;
 
     @JsonView(Views.User.class)
     @OneToMany(mappedBy = "user")

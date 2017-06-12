@@ -42,6 +42,9 @@ public class ReadTagFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_read_tag, container, false);
         ButterKnife.bind(this,view);
+
+        getPatient("122075");
+
         return view;
     }
 
@@ -76,7 +79,7 @@ public class ReadTagFragment extends Fragment {
         }
     }
 
-    private void getPatient(String patientID) {
+    public void getPatient(String patientID) {
         try {
             ServiceManager.getInstance().getPatient(getActivity(), patientID);
         } catch (Exception e) {

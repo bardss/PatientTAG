@@ -7,11 +7,15 @@ public class PatientTO implements Serializable {
     private Integer id;
     private String name;
     private String surname;
+    private String dateOfBirth;
+    private Sex sex;
 
-    public PatientTO(Integer id, String name, String surname){
+    public PatientTO(Integer id, String name, String surname, String dateOfBirth, Sex sex){
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+        this.sex = sex;
     }
 
     public Integer getId() {
@@ -36,5 +40,21 @@ public class PatientTO implements Serializable {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
+
+    public void setSex(Sex sex) {
+        this.sex = sex;
     }
 }

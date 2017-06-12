@@ -26,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.OkHttpClient;
 
-public class CheckTagActivity extends AppCompatActivity implements ListenerInterface{
+public class CheckTagActivity extends AppCompatActivity implements ListenerInterface {
 
     @BindView(R.id.viewpager)
     ViewPager viewPager;
@@ -52,6 +52,7 @@ public class CheckTagActivity extends AppCompatActivity implements ListenerInter
         setupTabLayout();
         setupButton();
         initNFC();
+
     }
 
     private void setupTabLayout() {

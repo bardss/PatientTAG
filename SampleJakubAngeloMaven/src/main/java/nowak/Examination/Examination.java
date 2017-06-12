@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @Table(name = "_examination")
 public class Examination extends BaseEntity {
     @JsonView(Views.Examination.class)
-    LocalDateTime dateOfExamination;
+    String dateOfExamination;
     @JsonView(Views.Examination.class)
     Double temperature;
     @JsonView(Views.Examination.class)

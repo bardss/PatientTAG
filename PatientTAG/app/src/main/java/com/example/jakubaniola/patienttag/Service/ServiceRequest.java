@@ -7,6 +7,7 @@ import android.util.Log;
 import com.example.jakubaniola.patienttag.CheckTagActivity;
 import com.example.jakubaniola.patienttag.TransportObjects.PatientTO;
 import com.example.jakubaniola.patienttag.Utils.JsonUtil;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +27,7 @@ public class ServiceRequest {
 
     public void getPatient(final Activity activity, final String id) throws Exception {
         final Request request = new Request.Builder()
-                .url("http://192.168.0.104:8080/user/userById/" + id)
+                .url("http://10.0.2.2:8080/user/" + id)
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -46,7 +47,9 @@ public class ServiceRequest {
                 try {
                     String jsonData = response.body().string();
                     JSONObject jsonResponse = new JSONObject(jsonData);
-                    final PatientTO patient = JsonUtil.jsonToPatient(jsonResponse);
+                    final PatientTO patient = JsonUtil.getInstance().fromJson(jsonData, new TypeToken<PatientTO>() {
+                    }.getType());
+                    //final PatientTO patient = JsonUtil.jsonToPatient(jsonResponse);
 
                     activity.runOnUiThread(new Runnable() {
                         public void run() {
