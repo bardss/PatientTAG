@@ -1,5 +1,6 @@
 package nowak.User;
 
+import nowak.Examination.Examination;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,11 +12,14 @@ public class UserService {
     UserRepository userRepository;
 
     public List<User> getAll() {
-        return (List<User>) userRepository.findAll();}
+        return (List<User>) userRepository.findAll();
+    }
 
-    public User findUserById(int id) {
-        User user =  userRepository.findById(id);
-        user.toString();
-        return user;
+    public User save(User examination) {
+        return userRepository.save(examination);
+    }
+
+    public User findById(Integer id){
+        return userRepository.findOne(id);
     }
 }
