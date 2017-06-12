@@ -1,9 +1,12 @@
 package com.example.jakubaniola.patienttag;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.SpinnerAdapter;
 
 import com.example.jakubaniola.patienttag.Adapters.NothingSelectedSpinnerAdapter;
@@ -29,6 +32,8 @@ public class PatientActivity extends Activity {
     EditText dateOfBirthET;
     @BindView(R.id.sex_spinner)
     Spinner sexSpinner;
+    @BindView(R.id.examinations_button)
+    LinearLayout examinationsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +42,24 @@ public class PatientActivity extends Activity {
         ButterKnife.bind(this);
 
         setupSpinner();
+        setupButtons();
 
         patient = (PatientTO) getIntent().getExtras().getSerializable("patient");
         if (patient != null){
             fillFields();
         }
+    }
+
+    private void setupButtons() {
+        examinationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                examinationsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                Intent intent = new Intent(PatientActivity.this, ExaminationActivity.class)
+                        .putExtra("patient", patient);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setupSpinner() {

@@ -1,6 +1,7 @@
 package com.example.jakubaniola.patienttag.TransportObjects;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class PatientTO implements Serializable {
 
@@ -10,13 +11,21 @@ public class PatientTO implements Serializable {
     private String dateOfBirth;
     private Sex sex;
 
-    public PatientTO(Integer id, String name, String surname, String dateOfBirth, Sex sex){
+    private ArrayList<ExaminationTO> examinations;
+
+    public PatientTO(Integer id, String name, String surname, String dateOfBirth, Sex sex, ArrayList<ExaminationTO> examinations){
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
         this.sex = sex;
+        if (examinations == null) {
+            this.examinations = new ArrayList<>();
+        } else {
+            this.examinations = examinations;
+        }
     }
+
 
     public Integer getId() {
         return id;
@@ -56,5 +65,13 @@ public class PatientTO implements Serializable {
 
     public void setSex(Sex sex) {
         this.sex = sex;
+    }
+
+    public ArrayList<ExaminationTO> getExaminations() {
+        return examinations;
+    }
+
+    public void setExaminations(ArrayList<ExaminationTO> examinations) {
+        this.examinations = examinations;
     }
 }
