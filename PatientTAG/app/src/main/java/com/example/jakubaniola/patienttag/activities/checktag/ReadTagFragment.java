@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.checktag;
 
 import android.content.Context;
 import android.nfc.FormatException;
@@ -11,7 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.jakubaniola.patienttag.Service.ServiceManager;
+import com.example.jakubaniola.patienttag.R;
+import com.example.jakubaniola.patienttag.base.Service.ServiceManager;
 
 import java.io.IOException;
 
@@ -42,8 +43,6 @@ public class ReadTagFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_read_tag, container, false);
         ButterKnife.bind(this,view);
-
-        getPatient("122075");
 
         return view;
     }

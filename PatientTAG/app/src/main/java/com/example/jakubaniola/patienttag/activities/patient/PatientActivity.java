@@ -1,24 +1,22 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.patient;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.SpinnerAdapter;
 
-import com.example.jakubaniola.patienttag.Adapters.NothingSelectedSpinnerAdapter;
-import com.example.jakubaniola.patienttag.Adapters.SexSpinnerAdapter;
-import com.example.jakubaniola.patienttag.TransportObjects.PatientTO;
-import com.example.jakubaniola.patienttag.TransportObjects.Sex;
+import com.example.jakubaniola.patienttag.activities.examination.ExaminationActivity;
+import com.example.jakubaniola.patienttag.R;
+import com.example.jakubaniola.patienttag.base.Adapters.NothingSelectedSpinnerAdapter;
+import com.example.jakubaniola.patienttag.base.Adapters.SexSpinnerAdapter;
+import com.example.jakubaniola.patienttag.base.TransportObjects.PatientTO;
+import com.example.jakubaniola.patienttag.base.TransportObjects.Sex;
 import com.rey.material.widget.Spinner;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static java.security.AccessController.getContext;
 
 public class PatientActivity extends Activity {
 
@@ -58,6 +56,7 @@ public class PatientActivity extends Activity {
                 Intent intent = new Intent(PatientActivity.this, ExaminationActivity.class)
                         .putExtra("patient", patient);
                 startActivity(intent);
+                examinationsButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
             }
         });
     }

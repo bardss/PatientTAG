@@ -1,9 +1,7 @@
-package com.example.jakubaniola.patienttag.Utils;
+package com.example.jakubaniola.patienttag.base.Utils;
 
 import android.util.Log;
 
-import com.example.jakubaniola.patienttag.TransportObjects.PatientTO;
-import com.example.jakubaniola.patienttag.TransportObjects.Sex;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -11,7 +9,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Array;

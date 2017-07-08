@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag.TransportObjects;
+package com.example.jakubaniola.patienttag.base.TransportObjects;
 
 import java.io.Serializable;
 

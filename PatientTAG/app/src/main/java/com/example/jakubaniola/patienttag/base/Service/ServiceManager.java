@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag.Service;
+package com.example.jakubaniola.patienttag.base.Service;
 
 public class ServiceManager {
 

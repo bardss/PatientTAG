@@ -1,9 +1,12 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.splash;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.jakubaniola.patienttag.activities.checktag.CheckTagActivity;
+import com.example.jakubaniola.patienttag.R;
 
 public class SplashActivity extends Activity {
 

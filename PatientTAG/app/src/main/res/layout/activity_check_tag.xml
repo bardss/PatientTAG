@@ -8,7 +8,7 @@
     android:background="@color/colorBackground"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.jakubaniola.patienttag.CheckTagActivity">
+    tools:context="com.example.jakubaniola.patienttag.activities.checktag.CheckTagActivity">
 
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"

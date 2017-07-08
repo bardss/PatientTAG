@@ -1,14 +1,11 @@
-package com.example.jakubaniola.patienttag.Adapters;
+package com.example.jakubaniola.patienttag.activities.checktag;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.jakubaniola.patienttag.ReadTagFragment;
-import com.example.jakubaniola.patienttag.WriteTagFragment;
-
 public class TagFragmentPagerAdapter extends FragmentPagerAdapter {
-    private final int PAGE_COUNT = 2;
+    final int PAGE_COUNT = 2;
     private String tabTitles[] = new String[] { "Read ID", "Give ID" };
     private ReadTagFragment readTagFragment;
     private WriteTagFragment writeTagFragment;

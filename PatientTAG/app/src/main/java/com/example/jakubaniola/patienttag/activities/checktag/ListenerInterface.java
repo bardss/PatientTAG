@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.checktag;
 
 public interface ListenerInterface {
 

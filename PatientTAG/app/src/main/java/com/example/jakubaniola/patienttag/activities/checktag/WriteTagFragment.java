@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.checktag;
 
 import android.content.Context;
 import android.nfc.FormatException;
@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+
+import com.example.jakubaniola.patienttag.R;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

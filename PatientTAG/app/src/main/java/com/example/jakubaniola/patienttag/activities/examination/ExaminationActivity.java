@@ -1,10 +1,11 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.examination;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.example.jakubaniola.patienttag.TransportObjects.ExaminationTO;
-import com.example.jakubaniola.patienttag.TransportObjects.PatientTO;
+import com.example.jakubaniola.patienttag.R;
+import com.example.jakubaniola.patienttag.base.TransportObjects.ExaminationTO;
+import com.example.jakubaniola.patienttag.base.TransportObjects.PatientTO;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;

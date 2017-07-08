@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag;
+package com.example.jakubaniola.patienttag.activities.checktag;
 
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -14,13 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.jakubaniola.patienttag.Adapters.TagFragmentPagerAdapter;
-import com.example.jakubaniola.patienttag.Service.ServiceManager;
-import com.example.jakubaniola.patienttag.TransportObjects.PatientTO;
-
-import org.json.JSONObject;
-
-import java.io.Serializable;
+import com.example.jakubaniola.patienttag.activities.patient.PatientActivity;
+import com.example.jakubaniola.patienttag.R;
+import com.example.jakubaniola.patienttag.base.Adapters.TagFragmentPagerAdapter;
+import com.example.jakubaniola.patienttag.base.TransportObjects.PatientTO;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

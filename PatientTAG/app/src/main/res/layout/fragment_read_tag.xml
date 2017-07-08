@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context="com.example.jakubaniola.patienttag.ReadTagFragment">
+    tools:context="com.example.jakubaniola.patienttag.activities.checktag.ReadTagFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"

@@ -1,14 +1,13 @@
-package com.example.jakubaniola.patienttag.Adapters;
+package com.example.jakubaniola.patienttag.base.Adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.jakubaniola.patienttag.TransportObjects.Sex;
+import com.example.jakubaniola.patienttag.base.TransportObjects.Sex;
 
 public class SexSpinnerAdapter extends ArrayAdapter<Sex> {
 

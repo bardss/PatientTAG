@@ -1,4 +1,4 @@
-package com.example.jakubaniola.patienttag.Adapters;
+package com.example.jakubaniola.patienttag.base.Adapters;
 
 import android.content.Context;
 import android.database.DataSetObserver;
